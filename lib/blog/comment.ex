@@ -6,7 +6,7 @@ defmodule Blog.Comment do
   @foreign_key_type :binary_id
   schema "comments" do
     field :body, :string
-    field :post_id, :binary_id
+    belongs_to :post, Blog.Post
 
     timestamps()
   end
@@ -14,7 +14,7 @@ defmodule Blog.Comment do
   @doc false
   def changeset(comment, attrs) do
     comment
-    |> cast(attrs, [:body])
+    |> cast(attrs, [:body, :post_id])
     |> validate_required([:body])
   end
 end

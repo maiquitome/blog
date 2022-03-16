@@ -8,6 +8,8 @@ defmodule Blog.Post do
     field :body, :string
     field :title, :string
 
+    has_many :comments, Blog.Comment
+
     timestamps()
   end
 
