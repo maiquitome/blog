@@ -24,3 +24,14 @@
 %Blog.Comment{}
 |> Blog.Comment.changeset(%{body: "comentário do Terceiro Post", post_id: post3.id})
 |> Blog.Repo.insert!
+
+######################
+#####   EMBEDS
+######################
+Blog.Repo.insert!(%Blog.Post{
+  title: "Hello",
+  permalinks: [
+    %Blog.Permalink{url: "example.com/thebest"},
+    %Blog.Permalink{url: "another.com/mostaccessed"}
+  ]
+})

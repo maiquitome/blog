@@ -9,6 +9,7 @@ defmodule Blog.Post do
     field :title, :string
 
     has_many :comments, Blog.Comment
+    embeds_many :permalinks, Blog.Permalink
 
     timestamps()
   end
